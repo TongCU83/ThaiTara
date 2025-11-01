@@ -2,30 +2,46 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>พนักงานที่มาทำงานวันนี้ | TarnSpa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>พนักงานร้านทัยธารา</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>พนักงานที่มาทำงานวันนี้</h1>
-    <nav>
-      <a href="index.html">หน้าแรก</a>
-      <a href="model.html">พนักงาน</a>
-    </nav>
+  <header class="hero">
+    <div class="overlay">
+      <h1>พนักงานของเรา</h1>
+      <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="model.html">พนักงาน</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-  <!-- <p id="last-update">กำลังโหลดเวลาอัปเดต...</p> -->
-  <!-- <button id="update-btn">อัปเดตสถานะวันนี้</button> -->
-  <div id="staff-list">กำลังโหลดข้อมูล...</div>
-      
+    <h2>พนักงานที่เข้าทำงานวันนี้</h2>
+    <section id="staff-list">
+      <div class="card">
+        <img src="pic/staff-fon.jpg" alt="น้องฝน">
+        <h3>น้องฝน</h3>
+        <p>นวดไทย / สปาเท้า</p>
+      </div>
+
+      <div class="card">
+        <img src="pic/staff-dao.jpg" alt="น้องดาว">
+        <h3>น้องดาว</h3>
+        <p>นวดน้ำมัน / สปาหน้า</p>
+      </div>
+
+      <div class="card">
+        <img src="pic/staff-aoy.jpg" alt="น้องออย">
+        <h3>น้องออย</h3>
+        <p>นวดไทย / นวดน้ำมัน</p>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 ทัยธารา</p>
+    <p>© 2025 ThaiTara Spa</p>
   </footer>
-
-  <script src="script.js"></script>
-  <!-- <script src="updateTime.js"></script> -->
 </body>
 </html>

@@ -26,16 +26,14 @@ fetch(url)
 
     // แสดงรายชื่อพนักงาน
     document.getElementById("staff-list").innerHTML =
-      html || "<p>วันนี้ยังไม่มีพนักงานเข้าระบบ</p>";
+      html || "<p>วันนี้ยังไม่มีพนักงานเข้ามาทำงาน</p>";
 
-    // ดึงเวลาจากเซลล์ F1
-    const lastUpdate = json.table.cols[4]?.label || ""; // เผื่อกรณีไม่มีข้อมูล
-    const cellF1 = json.table.rows[0]?.c[4]?.v || "";
-    if (cellF1) {
-      document.getElementById("last-update").textContent = cellF1;
-    } else {
-      document.getElementById("last-update").textContent = "ยังไม่มีการอัปเดตเวลา";
-    }
+    // const lastUpdateCell = json.table.rows[0]?.c[4]?.v || "";
+// if (lastUpdateCell) {
+  // document.getElementById("last-update").textContent = lastUpdateCell;
+// } else {
+  // document.getElementById("last-update").textContent = "ยังไม่มีการอัปเดตสถานะ";
+// }
   })
   .catch(err => {
     document.getElementById("staff-list").innerHTML = "<p>โหลดข้อมูลไม่สำเร็จ</p>";

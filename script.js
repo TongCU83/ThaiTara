@@ -6,12 +6,14 @@ fetch(url)
   .then(text => {
     const json = JSON.parse(text.substr(47).slice(0, -2));
     const rows = json.table.rows;
+
     let html = "";
     rows.forEach(r => {
       const name = r.c[0]?.v || "";
       const img = r.c[1]?.v || "";
       const status = r.c[2]?.v || "";
       const role = r.c[3]?.v || "";
+
       if (status.includes("✅")) {
         html += `
           <div class="card">
@@ -21,10 +23,22 @@ fetch(url)
           </div>`;
       }
     });
+
+    // แสดงรายชื่อพนักงาน
     document.getElementById("staff-list").innerHTML =
       html || "<p>วันนี้ยังไม่มีพนักงานเข้าระบบ</p>";
+
+    // ดึงเวลาจากเซลล์ F1
+    const lastUpdate = json.table.cols[4]?.label || ""; // เผื่อกรณีไม่มีข้อมูล
+    const cellF1 = json.table.rows[0]?.c[4]?.v || "";
+    if (cellF1) {
+      document.getElementById("last-update").textContent = cellF1;
+    } else {
+      document.getElementById("last-update").textContent = "ยังไม่มีการอัปเดตเวลา";
+    }
   })
   .catch(err => {
     document.getElementById("staff-list").innerHTML = "<p>โหลดข้อมูลไม่สำเร็จ</p>";
+    document.getElementById("last-update").textContent = "ไม่สามารถโหลดเวลาอัปเดตได้";
     console.error(err);
   });
